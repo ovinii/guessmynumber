@@ -1,5 +1,7 @@
 'use strict';
 
+const wrongEffect = new Audio('wrong.wav')
+const correctEffect = new Audio('correct.wav')
 let secretNumber = Math.trunc(Math.random() * 20 + 1)
 let score = 20;
 let highscore = 0;
@@ -16,6 +18,7 @@ check.addEventListener('click', function () {
     document.querySelector('.number').textContent = secretNumber
     document.body.style.backgroundColor = '#60b347'
     document.querySelector('.number').style.width = '30rem';
+    correctEffect.play()
 
     if(score > highscore) {
       highscore = score
@@ -27,15 +30,17 @@ check.addEventListener('click', function () {
     score--
     document.body.style.backgroundColor = 'red'
     document.querySelector('.number').textContent = 'X'
+    wrongEffect.play()
     setTimeout(() => {
       document.body.style.backgroundColor = '#222'
       document.querySelector('.number').textContent = '?'
-    }, 2000)
+    }, 1000)
     document.querySelector('.score').textContent = score
   } else if (guess > secretNumber) {
     document.querySelector('.message').textContent = '📈 Too high'
     document.body.style.backgroundColor = 'red'
     document.querySelector('.number').textContent = 'X'
+    wrongEffect.play()
     setTimeout(() => {
       document.body.style.backgroundColor = '#222'
       document.querySelector('.number').textContent = '?'
@@ -46,10 +51,11 @@ check.addEventListener('click', function () {
     document.querySelector('.message').textContent = '⛔ Invalid Number'
     document.body.style.backgroundColor = 'red'
     document.querySelector('.number').textContent = 'X'
+    wrongEffect.play()
     setTimeout(() => {
       document.body.style.backgroundColor = '#222'
       document.querySelector('.number').textContent = '?'
-    }, 2000)
+    }, 1000)
     score--
     document.querySelector('.score').textContent = score
   }
