@@ -9,6 +9,7 @@ const check = document.querySelector('.check')
 check.addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value)
   console.log(guess, secretNumber)
+  console.log(typeof(guess), typeof(secretNumber))
 
   if (guess === secretNumber) {
     document.querySelector('.message').textContent = '✅ Correct Number!'
@@ -24,13 +25,31 @@ check.addEventListener('click', function () {
   } else if (guess < secretNumber) {
     document.querySelector('.message').textContent = '📉 Too low'
     score--
+    document.body.style.backgroundColor = 'red'
+    document.querySelector('.number').textContent = 'X'
+    setTimeout(() => {
+      document.body.style.backgroundColor = '#222'
+      document.querySelector('.number').textContent = '?'
+    }, 2000)
     document.querySelector('.score').textContent = score
   } else if (guess > secretNumber) {
     document.querySelector('.message').textContent = '📈 Too high'
+    document.body.style.backgroundColor = 'red'
+    document.querySelector('.number').textContent = 'X'
+    setTimeout(() => {
+      document.body.style.backgroundColor = '#222'
+      document.querySelector('.number').textContent = '?'
+    }, 1000)
     score--
     document.querySelector('.score').textContent = score
   } else {
     document.querySelector('.message').textContent = '⛔ Invalid Number'
+    document.body.style.backgroundColor = 'red'
+    document.querySelector('.number').textContent = 'X'
+    setTimeout(() => {
+      document.body.style.backgroundColor = '#222'
+      document.querySelector('.number').textContent = '?'
+    }, 2000)
     score--
     document.querySelector('.score').textContent = score
   }
@@ -46,5 +65,3 @@ again.addEventListener('click', function () {
   document.querySelector('.number').style.width = '15rem';
   document.body.style.backgroundColor = '#222'
 })
-
-//score -todo
