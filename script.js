@@ -23,7 +23,6 @@ check.addEventListener('click', function () {
     }
   } else if (guess < secretNumber) {
     document.querySelector('.message').textContent = '📉 Too low'
-    let score = document.querySelector('.score')
     score--
     document.querySelector('.score').textContent = score
   } else if (guess > secretNumber) {
