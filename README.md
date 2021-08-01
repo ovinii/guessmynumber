@@ -7,4 +7,4 @@ Projeto desenvolvido com base no projeto do curso **The Complete JavaScript Cour
 > * A inserção de um valor inválido é debitado 1 ponto a jogador;
 
 ***
-<img height='40em' src='https://github.com/ovinii/guessmynumber/blob/main/guessmynumber.gif'></img>
+<img height='500px' src='https://github.com/ovinii/guessmynumber/blob/main/guessmynumber.gif'></img>
